@@ -26,4 +26,12 @@ public class User extends BaseEntity {
     @Column(name = "email")
     private String email;
 
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Address address;
+
+    public User(String name, String lastName, String email) {
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+    }
 }

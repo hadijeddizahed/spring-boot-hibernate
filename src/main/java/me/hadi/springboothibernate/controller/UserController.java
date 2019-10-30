@@ -1,6 +1,7 @@
 package me.hadi.springboothibernate.controller;
 
 
+import me.hadi.springboothibernate.controller.model.UserDto;
 import me.hadi.springboothibernate.entity.User;
 import me.hadi.springboothibernate.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class UserController {
 
 
     @PostMapping
-    public ResponseEntity<Void> addUser(@RequestBody User user) {
+    public ResponseEntity<Void> addUser(@RequestBody UserDto user) {
         userService.save(user);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
